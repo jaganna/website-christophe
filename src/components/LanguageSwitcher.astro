@@ -1,0 +1,22 @@
+---
+import { locales, type Locale, getLocalizedPath, getLangFromUrl } from "../i18n/utils";
+
+const currentLang = getLangFromUrl(Astro.url);
+
+// Get the current path without locale prefix
+const currentPath = Astro.url.pathname.replace(/^\/(en|fr|pl)/, "") || "/";
+---
+
+<div class="flex gap-2 text-sm text-gray-500">
+  {locales.map((locale) => (
+    <a
+      href={getLocalizedPath(currentPath, locale)}
+      class:list={[
+        "uppercase hover:text-black",
+        { "font-bold text-black": locale === currentLang },
+      ]}
+    >
+      {locale}
+    </a>
+  ))}
+</div>

@@ -1,0 +1,24 @@
+---
+import { useTranslations } from "../i18n/utils";
+import type { Locale } from "../i18n/translations";
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = "en" } = Astro.props;
+const t = useTranslations(lang);
+const services = t.services;
+---
+
+<section id="services" class="mb-16">
+  <h2>{services.title}</h2>
+  <ul class="space-y-4">
+    {services.items.map((item) => (
+      <li>
+        <span class="font-semibold">{item.name}</span>
+        <p class="text-gray-600 text-sm mt-1">{item.description}</p>
+      </li>
+    ))}
+  </ul>
+</section>

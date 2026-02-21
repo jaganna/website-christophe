@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import About from "../../components/About.astro";
+import Services from "../../components/Services.astro";
+import BlogList from "../../components/BlogList.astro";
+
+const lang = "fr";
+---
+
+<BaseLayout
+  title="Christophe Bach-Bourdelier"
+  description="Éco-conseiller et analyste ESG. Conseil en durabilité, reporting CSRD et transition écologique."
+  lang={lang}
+>
+  <About lang={lang} />
+  <Services lang={lang} />
+  <BlogList lang={lang} />
+</BaseLayout>

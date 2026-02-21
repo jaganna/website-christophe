@@ -1,15 +1,15 @@
 ---
 import { getCollection, render } from "astro:content";
-import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+import BlogPostLayout from "../../../layouts/BlogPostLayout.astro";
 
-const lang = "en";
+const lang = "fr";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts
-    .filter((post) => post.id.startsWith("en/"))
+    .filter((post) => post.id.startsWith("fr/"))
     .map((post) => ({
-      params: { slug: post.id.replace(/^en\//, "") },
+      params: { slug: post.id.replace(/^fr\//, "") },
       props: post,
     }));
 }

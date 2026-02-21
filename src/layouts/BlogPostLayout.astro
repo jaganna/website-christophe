@@ -1,23 +1,29 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { useTranslations, getDateLocale, getBlogPath } from "../i18n/utils";
+import type { Locale } from "../i18n/translations";
 
 interface Props {
   title: string;
   description: string;
   date: Date;
+  lang?: Locale;
 }
 
-const { title, description, date } = Astro.props;
-const formattedDate = date.toLocaleDateString("fr-FR", {
+const { title, description, date, lang = "en" } = Astro.props;
+const t = useTranslations(lang);
+const dateLocale = getDateLocale(lang);
+const formattedDate = date.toLocaleDateString(dateLocale, {
   year: "numeric",
   month: "long",
   day: "numeric",
 });
+const blogPath = getBlogPath(lang);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} lang={lang}>
   <article>
-    <a href="/blog" class="text-gray-500 text-sm mb-8 inline-block">&larr; Retour au blog</a>
+    <a href={blogPath} class="text-gray-500 text-sm mb-8 inline-block">{t.posts.backToPosts}</a>
     <header class="mb-8">
       <h1>{title}</h1>
       <time datetime={date.toISOString()} class="text-gray-500 text-sm">

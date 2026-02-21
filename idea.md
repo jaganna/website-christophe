@@ -40,3 +40,25 @@ Zalozylem ze poradzi sobie ze stworzeniem nowego pliku MD na githubie (zeby nie 
 
 Deployment:
 - instructions do deploym, git, vercel
+
+
+
+Add following changes:
+
+UX:
+ - In the heading (lets try in the center of the page) there will be logo
+ - Tell me what kind of image (size format, theme,  etc) I need to request from the graphic designer?
+
+
+Menu / Contents:
+ - About
+ - Posts
+ - Offer / how I can help / why me <- not sure about wording here (use sth the is modern and currectnly "trendy")
+
+Change language feature:
+ - Supported: English, Franch, Polish
+ - Default: English (can we detect user's language settings and use it if its supported? - if this is trivial we can do it otherwise default to English)
+
+"About" contents:
+ - will currently be in a form of a CV
+ - Read PL/EN/FR pdf files under contents_prv folder and make the content based ONLY and exactly using this information

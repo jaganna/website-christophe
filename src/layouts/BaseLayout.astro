@@ -6,27 +6,45 @@ import "../styles/global.css";
 import SEOHead from "../components/SEOHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import type { Locale } from "../i18n/translations";
 
 interface Props {
   title: string;
   description: string;
+  lang?: Locale;
 }
 
-const { title, description } = Astro.props;
+const { title, description, lang = "en" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
   <head>
-    <SEOHead title={title} description={description} />
+    <SEOHead title={title} description={description} lang={lang} />
   </head>
   <body>
     <div class="max-w-2xl mx-auto px-6 py-12">
-      <Header />
+      <Header lang={lang} />
       <main>
         <slot />
       </main>
-      <Footer />
+      <Footer lang={lang} />
     </div>
+    <script is:inline>
+      (function () {
+        if (localStorage.getItem("lang-redirect-done")) return;
+        var lang = navigator.language || navigator.userLanguage || "";
+        var prefix = lang.toLowerCase().slice(0, 2);
+        var path = window.location.pathname;
+        if (path !== "/" && path !== "/index.html") return;
+        if (prefix === "fr") {
+          localStorage.setItem("lang-redirect-done", "1");
+          window.location.replace("/fr/");
+        } else if (prefix === "pl") {
+          localStorage.setItem("lang-redirect-done", "1");
+          window.location.replace("/pl/");
+        }
+      })();
+    </script>
   </body>
 </html>

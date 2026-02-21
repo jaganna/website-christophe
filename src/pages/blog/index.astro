@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogList from "../../components/BlogList.astro";
+
+const lang = "en";
 ---
 
 <BaseLayout
-  title="Blog"
-  description="Articles sur la conformité européenne, l'écologie et la stratégie d'entreprise."
+  title="Posts"
+  description="Articles on environmental consulting, ecology, and sustainability."
+  lang={lang}
 >
-  <BlogList />
+  <BlogList lang={lang} />
 </BaseLayout>

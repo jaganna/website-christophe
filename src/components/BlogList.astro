@@ -1,33 +1,53 @@
 ---
 import { getCollection } from "astro:content";
+import { useTranslations, getDateLocale, getBlogPath } from "../i18n/utils";
+import type { Locale } from "../i18n/translations";
 
-const posts = (await getCollection("blog"))
-  .filter((post) => !post.data.draft)
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = "en" } = Astro.props;
+const t = useTranslations(lang);
+const dateLocale = getDateLocale(lang);
+const blogPath = getBlogPath(lang);
+
+const allPosts = await getCollection("blog");
+const posts = allPosts
+  .filter((post) => {
+    if (post.data.draft) return false;
+    // Filter by locale: posts in locale subfolder (e.g. "en/first-post" starts with "en/")
+    return post.id.startsWith(`${lang}/`);
+  })
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <section id="blog" class="mb-16">
-  <h2>Blog</h2>
+  <h2>{t.posts.title}</h2>
   {
     posts.length === 0 ? (
-      <p class="text-gray-500">Aucun article pour le moment.</p>
+      <p class="text-gray-500">{t.posts.noPostsYet}</p>
     ) : (
       <ul class="space-y-4">
-        {posts.map((post) => (
-          <li>
-            <a href={`/blog/${post.id}`} class="group">
-              <span class="text-gray-500 text-sm">
-                {post.data.date.toLocaleDateString("fr-FR", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </span>
-              <span class="mx-2">—</span>
-              <span class="group-hover:underline">{post.data.title}</span>
-            </a>
-          </li>
-        ))}
+        {posts.map((post) => {
+          // Remove locale prefix from post id for the URL slug
+          const slug = post.id.replace(/^(en|fr|pl)\//, "");
+          return (
+            <li>
+              <a href={`${blogPath}/${slug}`} class="group">
+                <span class="text-gray-500 text-sm">
+                  {post.data.date.toLocaleDateString(dateLocale, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </span>
+                <span class="mx-2">&mdash;</span>
+                <span class="group-hover:underline">{post.data.title}</span>
+              </a>
+            </li>
+          );
+        })}
       </ul>
     )
   }

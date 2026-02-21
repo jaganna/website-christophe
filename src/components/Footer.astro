@@ -1,5 +1,15 @@
 ---
+import { useTranslations } from "../i18n/utils";
+import type { Locale } from "../i18n/translations";
 
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = "en" } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+const rights = t.footer.rights.replace("{year}", String(year));
 ---
 
 <footer class="mt-16 pt-8 border-t border-gray-200 text-sm text-gray-500">
@@ -11,6 +21,7 @@
           contact@christophe-bach.fr
         </a>
       </p>
+      <p class="mt-2">{rights}</p>
     </div>
     <div class="flex gap-4">
       <a href="https://www.linkedin.com/in/" class="hover:text-black">LinkedIn</a>

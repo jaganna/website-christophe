@@ -1,14 +1,22 @@
 ---
+import { locales, getLocalizedPath, getOgLocale } from "../i18n/utils";
+import type { Locale } from "../i18n/translations";
+
 interface Props {
   title: string;
   description: string;
   canonicalURL?: string;
+  lang?: Locale;
 }
 
-const { title, description, canonicalURL } = Astro.props;
+const { title, description, canonicalURL, lang = "en" } = Astro.props;
 const siteTitle = "Christophe Bach-Bourdelier";
 const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`;
 const canonical = canonicalURL || Astro.url.href;
+const ogLocale = getOgLocale(lang);
+
+// Build hreflang alternates
+const currentPath = Astro.url.pathname.replace(/^\/(en|fr|pl)/, "") || "/";
 ---
 
 <meta charset="utf-8" />
@@ -19,12 +27,26 @@ const canonical = canonicalURL || Astro.url.href;
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
+<!-- hreflang alternates -->
+{locales.map((locale) => (
+  <link
+    rel="alternate"
+    hreflang={locale}
+    href={new URL(getLocalizedPath(currentPath, locale), Astro.site).href}
+  />
+))}
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href={new URL(getLocalizedPath(currentPath, "en"), Astro.site).href}
+/>
+
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
-<meta property="og:locale" content="fr_FR" />
+<meta property="og:locale" content={ogLocale} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary" />

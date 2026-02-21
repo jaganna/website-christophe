@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BlogList from "../../../components/BlogList.astro";
+
+const lang = "pl";
+---
+
+<BaseLayout
+  title="Artykuły"
+  description="Artykuły o doradztwie środowiskowym, ekologii i zrównoważonym rozwoju."
+  lang={lang}
+>
+  <BlogList lang={lang} />
+</BaseLayout>
