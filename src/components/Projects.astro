@@ -1,0 +1,35 @@
+---
+const projects = [
+  {
+    year: "2025",
+    name: "Audit CSRD",
+    description: "Accompagnement d'une ETI industrielle dans la préparation de son premier rapport de durabilité conforme à la directive CSRD.",
+  },
+  {
+    year: "2024",
+    name: "Mise en conformité RGPD",
+    description: "Diagnostic et plan d'action pour une PME du secteur numérique — registre des traitements, analyses d'impact, formation des équipes.",
+  },
+  {
+    year: "2024",
+    name: "Taxonomie verte EU",
+    description: "Évaluation de l'éligibilité et de l'alignement des activités d'un groupe immobilier avec la taxonomie européenne.",
+  },
+];
+---
+
+<section id="projets" class="mb-16">
+  <h2>Projets</h2>
+  <ul class="space-y-4">
+    {
+      projects.map((project) => (
+        <li>
+          <span class="text-gray-500 text-sm">{project.year}</span>
+          <span class="mx-2">—</span>
+          <span class="font-semibold">{project.name}</span>
+          <p class="text-gray-600 text-sm mt-1">{project.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
