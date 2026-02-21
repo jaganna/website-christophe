@@ -62,3 +62,21 @@ Change language feature:
 "About" contents:
  - will currently be in a form of a CV
  - Read PL/EN/FR pdf files under contents_prv folder and make the content based ONLY and exactly using this information
+
+
+UX adjustements needed for header:
+
+    Change name to 
+        
+        Andrew 
+        Christophe 
+        Rodolphe
+        Bach-Bourdelier
+        
+    (Use line breaks as above so it takes less width)
+
+We need [name + logo + menu] to be on the same line next to each other. You can slightly increase the overall width if needed
+
+Langueage selection should be moved away. Lets put it on the top right corner (traditional place)
+
+Also I used another file for logo: "logo.jpg", please adjust code to use it

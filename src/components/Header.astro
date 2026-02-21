@@ -13,18 +13,25 @@ const homePath = getLocalizedPath("/", lang);
 ---
 
 <header class="mb-12">
-  <div class="flex flex-col items-center mb-6">
-    <a href={homePath}>
-      <img src="/logo.svg" alt="Christophe Bach-Bourdelier" width="200" height="60" />
-    </a>
+  <!-- Language switcher: top-right corner -->
+  <div class="flex justify-end mb-4">
+    <LanguageSwitcher />
   </div>
-  <nav class="flex items-center justify-between">
-    <a href={homePath} class="font-serif text-xl font-bold">Christophe Bach-Bourdelier</a>
-    <div class="flex items-center gap-6 text-sm text-gray-600">
+
+  <!-- Name + Logo + Menu on one line -->
+  <nav class="flex items-center justify-between gap-4">
+    <a href={homePath} class="font-serif text-sm font-bold leading-tight shrink-0">
+      Andrew<br />Christophe<br />Rodolphe<br />Bach-Bourdelier
+    </a>
+
+    <a href={homePath} class="shrink-0">
+      <img src="/logo.jpg" alt="Logo" width="80" height="80" class="rounded" />
+    </a>
+
+    <div class="flex items-center gap-5 text-sm text-gray-600 shrink-0">
       <a href={`${homePath === "/" ? "" : homePath}#about`}>{t.nav.about}</a>
       <a href={getBlogPath(lang)}>{t.nav.posts}</a>
       <a href={`${homePath === "/" ? "" : homePath}#services`}>{t.nav.services}</a>
-      <LanguageSwitcher />
     </div>
   </nav>
 </header>
