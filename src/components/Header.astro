@@ -29,9 +29,9 @@ const homePath = getLocalizedPath("/", lang);
     </a>
 
     <div class="flex items-center gap-5 text-sm text-gray-600 shrink-0">
-      <a href={`${homePath === "/" ? "" : homePath}#about`}>{t.nav.about}</a>
+      <a href={`${homePath}#about`}>{t.nav.about}</a>
       <a href={getBlogPath(lang)}>{t.nav.posts}</a>
-      <a href={`${homePath === "/" ? "" : homePath}#services`}>{t.nav.services}</a>
+      <a href={`${homePath}#services`}>{t.nav.services}</a>
     </div>
   </nav>
 </header>
