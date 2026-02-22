@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Services from "../../components/Services.astro";
+
+const lang = "fr";
+---
+
+<BaseLayout
+  title="Services"
+  description="Services de conseil environnemental : diagnostics, transition écologique, reporting ESG, conformité CSRD."
+  lang={lang}
+>
+  <Services lang={lang} />
+</BaseLayout>
