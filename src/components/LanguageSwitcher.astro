@@ -4,13 +4,18 @@ import { locales, type Locale, getLocalizedPath, getLangFromUrl } from "../i18n/
 const currentLang = getLangFromUrl(Astro.url);
 
 // Get the current path without locale prefix
-const currentPath = Astro.url.pathname.replace(/^\/(en|fr|pl)/, "") || "/";
+const cleanPath = Astro.url.pathname.replace(/^\/(en|fr|pl)/, "") || "/";
+
+// If on a single blog post page (e.g. /blog/some-slug), switch to homepage
+// since post slugs differ per language. Blog index (/blog/) is fine to keep.
+const isBlogPost = /^\/blog\/.+/.test(cleanPath);
+const targetPath = isBlogPost ? "/" : cleanPath;
 ---
 
 <div class="flex gap-2 text-sm text-gray-500">
   {locales.map((locale) => (
     <a
-      href={getLocalizedPath(currentPath, locale)}
+      href={getLocalizedPath(targetPath, locale)}
       class:list={[
         "uppercase hover:text-black",
         { "font-bold text-black": locale === currentLang },
