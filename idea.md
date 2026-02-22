@@ -80,3 +80,30 @@ We need [name + logo + menu] to be on the same line next to each other. You can 
 Langueage selection should be moved away. Lets put it on the top right corner (traditional place)
 
 Also I used another file for logo: "logo.jpg", please adjust code to use it
+
+
+
+
+
+BUG:
+1. Open https://website-christophe.vercel.app/
+2. Click Posts
+3. Click About
+
+==> Nothing happens
+Website tries to navigate to: https://website-christophe.vercel.app/blog#about
+Seems PL and FR is ok, only happens on EN language
+
+
+BUG:
+1. Open https://website-christophe.vercel.app/
+2. Click Posts
+3. Click on a post ==> http://localhost:4321/blog/first-post is opened
+4. Change languege ==> 404 page is displayed
+   treis to navigate to: http://localhost:4321/fr/blog/first-post
+
+By the way: in case of 404 lets just navigate to the home page always
+
+
+Lets have a separate pages for About and Services.
+Currently it just scrolles the page using anchor, lets display separately. Its different "concern" for viewers
