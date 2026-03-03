@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BlogList from "../../../components/BlogList.astro";
+
+const lang = "br";
+---
+
+<BaseLayout
+  title="Pennadoù"
+  description="Pennadoù diwar-benn kuzul endroù, ekologiezh ha diorren padel."
+  lang={lang}
+>
+  <BlogList lang={lang} />
+</BaseLayout>

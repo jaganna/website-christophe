@@ -369,6 +369,133 @@ export const translations = {
       rights: "\u00a9 {year} Christophe Bach-Bourdelier. Wszelkie prawa zastrze\u017cone.",
     },
   },
+  br: {
+    nav: {
+      about: "Diwar-benn",
+      posts: "Pennadо\u00f9",
+      services: "Servicho\u00f9",
+    },
+    site: {
+      title: "Christophe Bach-Bourdelier",
+      description:
+        "Spesialour endro\u00f9 hag ESG. Kuzul evit an diorren padel, rent CSRD ha treuzkas ekologel.",
+    },
+    about: {
+      title: "Diwar-benn",
+      profile:
+        "Spesialour endro\u00f9 hag ESG gant skiant-prenet e raktreso\u00f9 diorren padel, rent klot gant CSRD ha kuzul ekologel. Kendere\u2019l gouiziegezho\u00f9 teknikel, dielfennel ha merour\u00f9 raktreso\u00f9.",
+      experienceTitle: "Skiant-prenet",
+      experience: [
+        {
+          role: "Karger raktres endro\u00f9",
+          org: "Fundacja Aeris Futuro, Wieliczka",
+          period: "2025",
+        },
+        {
+          role: "Dielfennour Roadenno\u00f9 / Habaskour Danvez",
+          org: "Accenture, Krak\u00f3w",
+          period: "2018\u20132024",
+        },
+        {
+          role: "Jestour kontadurezh / Rent arc\u2019hant",
+          org: "Heineken, Krak\u00f3w",
+          period: "2014\u20132017",
+        },
+        {
+          role: "Kelenner galleg / saozneg / brezhoneg",
+          org: "lec\u2019hio\u00f9 dishe\u00f1vel, Bro-C\u2019hall ha Polonia",
+          period: "2012\u20132023",
+        },
+        {
+          role: "Rener pedagogel ha strategel",
+          org: "IUT Nancy-Brabois",
+          period: "2008\u20132011",
+        },
+      ],
+      educationTitle: "Deskadurezh",
+      education: [
+        {
+          degree: "Mast\u00e8re Sp\u00e9cialis\u00e9\u00ae Eko-Kuzulier",
+          school: "INSA Strasbourg",
+          period: "2024\u20132026",
+        },
+        {
+          degree: "Master Ijinerezh an Endro\u00f9 (n\u2019eo ket echuet)",
+          school: "AGH, Krak\u00f3w",
+          period: "",
+        },
+        {
+          degree: "Master FLE",
+          school: "Skol-veur Strasbourg",
+          period: "",
+        },
+        {
+          degree: "Lisans brezhoneg",
+          school: "Skol-veur Roazhon",
+          period: "",
+        },
+        {
+          degree: "Lisans saozneg",
+          school: "Skol-veur Naoned",
+          period: "",
+        },
+      ],
+      skillsTitle: "Gouiziegezho\u00f9",
+      skills:
+        "Priziadenn endro\u00f9, dielfennere\u00f9 diorren padel, rent ESG, klotadur CSRD, merour\u00f9 raktreso\u00f9, Excel / Power BI / GIS",
+      engagementTitle: "Ober\u00f9 kevredigezhel",
+      engagement:
+        "Labourour-Loss gant ar c\u2019hamp-liorzh kear, paludo\u00f9-c\u2019hoalen, beajo\u00f9 hir (30+ bro), kevredigezh endro\u00f9 ACIPA",
+    },
+    services: {
+      title: "Servicho\u00f9",
+      items: [
+        {
+          name: "Diagnostiko\u00f9 endro\u00f9 ha tiriadel",
+          description:
+            "Priziadenn klok eus an taolo\u00f9-skoaz war an endro\u00f9 hag eus ar c\u2019hallo\u00f9 tiriadel.",
+        },
+        {
+          name: "Kuzul evit an treuzkas ekologel",
+          description:
+            "Hentenna\u00f1 strategel evit an aozaduro\u00f9 o vont en-dro d\u2019an treuzkas ekologel.",
+        },
+        {
+          name: "Hin-amzer, energiezh, bevliesseurted ha armerzhiado\u00f9 kelc\u2019hiek",
+          description:
+            "Sevel ha laka\u00e1t e pleustr raktreso\u00f9 en domanio\u00f9 pennroll an endro\u00f9.",
+        },
+        {
+          name: "Dihunusa\u00f1, embreger an dud e-lec\u2019h ha pedagogiezh",
+          description:
+            "Stumma\u00f1, kemennadur ha sevel an dud e-lec\u2019h diwar-benn kudenno\u00f9 an endro\u00f9.",
+        },
+        {
+          name: "Skoazell da zibab ha strategiezho\u00f9 endro\u00f9",
+          description:
+            "Dielfennere\u00f9 diazezet war roadenno\u00f9 ha aliaduro\u00f9 strategel evit an endro\u00f9.",
+        },
+        {
+          name: "Rent ESG ha klotadur CSRD",
+          description:
+            "Prienti\u00f1 ha framm rento\u00f9 diorren padel klot gant rekiso\u00f9 CSRD.",
+        },
+      ],
+    },
+    posts: {
+      title: "Pennadо\u00f9",
+      noPostsYet: "Pennad ebet evit ar poent.",
+      backToPosts: "\u2190 Distro d\u2019ar pennadо\u00f9",
+    },
+    blog: {
+      title: "Pennadо\u00f9",
+      description:
+        "Pennadо\u00f9 diwar-benn kuzul endro\u00f9, ekologiezh ha diorren padel.",
+    },
+    footer: {
+      rights: "\u00a9 {year} Christophe Bach-Bourdelier. Pep gwir miret.",
+    },
+  },
 } as const;
 
 export type Locale = keyof typeof translations;

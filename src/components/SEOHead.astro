@@ -1,5 +1,5 @@
 ---
-import { locales, getLocalizedPath, getOgLocale } from "../i18n/utils";
+import { locales, getLocalizedPath, getOgLocale, stripLocalePrefix } from "../i18n/utils";
 import type { Locale } from "../i18n/translations";
 
 interface Props {
@@ -16,7 +16,7 @@ const canonical = canonicalURL || Astro.url.href;
 const ogLocale = getOgLocale(lang);
 
 // Build hreflang alternates
-const currentPath = Astro.url.pathname.replace(/^\/(en|fr|pl)/, "") || "/";
+const currentPath = stripLocalePrefix(Astro.url.pathname);
 ---
 
 <meta charset="utf-8" />

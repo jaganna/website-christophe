@@ -43,6 +43,9 @@ const { title, description, lang = "en" } = Astro.props;
         } else if (prefix === "pl") {
           localStorage.setItem("lang-redirect-done", "1");
           window.location.replace("/pl/");
+        } else if (prefix === "br") {
+          localStorage.setItem("lang-redirect-done", "1");
+          window.location.replace("/br/");
         }
       })();
     </script>

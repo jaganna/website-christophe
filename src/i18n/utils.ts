@@ -1,7 +1,12 @@
 import { translations, type Locale } from "./translations";
 
 export const defaultLocale: Locale = "en";
-export const locales: Locale[] = ["en", "fr", "pl"];
+export const locales: Locale[] = ["en", "fr", "pl", "br"];
+
+// Shared regex for stripping locale prefixes from paths
+const localePrefix = /^\/(en|fr|pl|br)/;
+// Shared regex for stripping locale prefixes from content IDs
+export const localePrefixSlash = /^(en|fr|pl|br)\//;
 
 export function getLangFromUrl(url: URL): Locale {
   const [, lang] = url.pathname.split("/");
@@ -14,10 +19,13 @@ export function useTranslations(lang: Locale) {
 }
 
 export function getLocalizedPath(path: string, lang: Locale): string {
-  // Remove any existing locale prefix
-  const cleanPath = path.replace(/^\/(en|fr|pl)/, "") || "/";
+  const cleanPath = path.replace(localePrefix, "") || "/";
   if (lang === defaultLocale) return cleanPath;
   return `/${lang}${cleanPath === "/" ? "" : cleanPath}`;
+}
+
+export function stripLocalePrefix(pathname: string): string {
+  return pathname.replace(localePrefix, "") || "/";
 }
 
 export function getDateLocale(lang: Locale): string {
@@ -25,6 +33,7 @@ export function getDateLocale(lang: Locale): string {
     en: "en-GB",
     fr: "fr-FR",
     pl: "pl-PL",
+    br: "br-FR",
   };
   return map[lang];
 }
@@ -34,6 +43,7 @@ export function getOgLocale(lang: Locale): string {
     en: "en_GB",
     fr: "fr_FR",
     pl: "pl_PL",
+    br: "br_FR",
   };
   return map[lang];
 }

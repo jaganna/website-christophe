@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { useTranslations, getDateLocale, getBlogPath } from "../i18n/utils";
+import { useTranslations, getDateLocale, getBlogPath, localePrefixSlash } from "../i18n/utils";
 import type { Locale } from "../i18n/translations";
 
 interface Props {
@@ -31,7 +31,7 @@ const posts = allPosts
       <ul class="space-y-4">
         {posts.map((post) => {
           // Remove locale prefix from post id for the URL slug
-          const slug = post.id.replace(/^(en|fr|pl)\//, "");
+          const slug = post.id.replace(localePrefixSlash, "");
           return (
             <li>
               <a href={`${blogPath}/${slug}`} class="group">

@@ -7,7 +7,7 @@ export default defineConfig({
   integrations: [tailwind(), sitemap()],
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "fr", "pl"],
+    locales: ["en", "fr", "pl", "br"],
     routing: {
       prefixDefaultLocale: false,
     },

@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogList from "../../components/BlogList.astro";
+
+const lang = "br";
+---
+
+<BaseLayout
+  title="Christophe Bach-Bourdelier"
+  description="Spesialour endroù hag ESG. Kuzul evit an diorren padel, rent CSRD ha treuzkas ekologel."
+  lang={lang}
+>
+  <BlogList lang={lang} />
+</BaseLayout>
